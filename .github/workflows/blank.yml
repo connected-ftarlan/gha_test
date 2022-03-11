@@ -31,7 +31,7 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v17.3
         with:
-          format: space-delimited
+          fetch-depth: 2
 
       # Runs a set of commands using the runners shell
       - name: print all changed files
