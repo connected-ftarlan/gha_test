@@ -7,6 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
+    paths: 
+      - 'schemas/**.json'
   pull_request:
     branches: [ main ]
 
@@ -26,7 +28,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 1
+          fetch-depth: 2
 
       # Runs a single command using the runners shell
       - name: Find changed files
