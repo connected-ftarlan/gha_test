@@ -2,13 +2,11 @@ name: list all changed files
 
 on:
   push:
-		paths:
-			- 'schemas/**'
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build:
+		runs-on: ubuntu-latest
 		steps:
 			- name: Checkout code
       	uses: actions/checkout@v2
