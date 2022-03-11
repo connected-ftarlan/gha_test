@@ -10,8 +10,7 @@ on:
       - main
 
 jobs:
-  registry_upload:
-		name: upload to schemas registry
+  list_changes:
     if: github.event.pull_request.merged == true
 		runs-on: ubuntu-latest
 		steps:
