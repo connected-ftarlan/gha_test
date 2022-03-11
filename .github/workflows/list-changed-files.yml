@@ -1,17 +1,14 @@
 name: list all changed files
 
 on:
-  pull_request:
-		types: 
-			[closed]
+  push:
 		paths:
 			- 'schemas/**'
     branches:
       - main
 
 jobs:
-  if_merged:
-		if: contains(github.event.pull_request.labels.*.name, 'Update')		
+  build:
 		steps:
 			- name: Checkout code
       	uses: actions/checkout@v2
