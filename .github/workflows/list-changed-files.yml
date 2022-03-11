@@ -1,17 +1,13 @@
-name: list-changed-files
+name: upload-to-schema-registry
 
 on:
   pull_request:
-    types:
-      - closed
-    paths:
-      - 'schemas/**.json'
     branches:
       - main
 
 jobs:
-  list_changes:
-    if: github.event.pull_request.merged == true
+  build:
+    if: github.event.pull_request.merged == true 
 		runs-on: ubuntu-latest
 		steps:
 			- name: Checkout code
@@ -19,12 +15,10 @@ jobs:
 			
 			- name: Changed files
 				id: changed-files
-				uses: tj-actions/changed-files@17.3
+				uses: tj-actions/changed-files@v17.3
 				with:
           format: space-delimited
 
-			- name: List changed files
-				run: |
-					for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-						echo ${{file}}
-					done
+      - name: Print all changed files
+        run: |
+          echo ${{ steps.changed-files.outputs.all_changed_files }}
