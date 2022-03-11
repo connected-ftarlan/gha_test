@@ -1,9 +1,9 @@
-name: upload-to-schema-registry
+name: list all changed files
 
 on:
   pull_request:
-    types:
-      - closed
+		types: 
+			[closed]
 		paths:
 			- 'schemas/**'
     branches:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request.merged == true
+		if: contains(github.event.pull_request.labels.*.name, 'Update')		
 		steps:
 			- name: Checkout code
       	uses: actions/checkout@v2
