@@ -35,5 +35,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: print all changed files
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo ${{ steps.changed-files.outputs.all_changed_files }}
