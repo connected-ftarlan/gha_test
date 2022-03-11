@@ -4,7 +4,7 @@ on:
   pull_request:
     types:
       - closed
-		path:
+		paths:
 			- 'schemas/**'
     branches:
       - main
