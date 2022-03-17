@@ -1,4 +1,4 @@
-from src.publish_schema.schema_parser import add
+from src.publish_schema.schema_parser import add_numbers
 
 def test_add_numbers():
-    assert add(1, 3) == 4
+    assert add_numbers(1, 3) == 4
