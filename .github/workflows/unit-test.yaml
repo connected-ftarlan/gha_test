@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: set up poetry
-        uses: actions/setup-python@v1
+      - name: Install Poetry Action
+        uses: snok/install-poetry@v1.3.1
 
       - name: install dependencies
         run: poetry install
