@@ -8,6 +8,7 @@ authors = ["Farhang Tarlan <farhang.tarlan@onepeloton.com>"]
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
+pytest = "^7.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

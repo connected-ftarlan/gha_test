@@ -1,0 +1,30 @@
+name: publish to schema registry
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - '**.py'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: set up python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+
+      - name: set up poetry
+        uses: actions/setup-python@v1
+
+      - name: install dependencies
+        run: poetry install
+
+      - name: run unit tests
+        run: poetry run pytest test/test_schema_parser.py -v
