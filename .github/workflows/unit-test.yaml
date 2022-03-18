@@ -1,10 +1,9 @@
-name: unit test
+name: combined workflow
 
 on:
   pull_request:
     types:
       - opened
-
 
 jobs:
   test:
@@ -12,7 +11,7 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-        
+
       - name: set up python
         uses: actions/setup-python@v3
         with:
@@ -25,4 +24,12 @@ jobs:
         run: poetry install
 
       - name: run unit tests
-        run: poetry run pytest test/test_schema_parser.py -v
+        run: poetry run pytest test/test_*.py -v
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello World
+        run: |
+          echo "hello World!"
